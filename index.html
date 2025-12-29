@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Configs | @unrapeddt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00c6ff;
+            --secondary: #0072ff;
+            --accent: #00ff9d;
+            --danger: #ff4757;
+            --warning: #ffa502;
+            --dark: #0a0e17;
+            --dark-light: #141928;
+            --text: #ccd6f6;
+            --card-bg: rgba(20, 25, 40, 0.85);
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 114, 255, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 80% 80%, rgba(0, 198, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 40% 60%, rgba(0, 255, 157, 0.08) 0%, transparent 20%);
+        }
+
+        /* Enhanced Starry Background */
+        #stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        .star-small {
+            width: 1px;
+            height: 1px;
+            animation: twinkle 4s infinite alternate;
+        }
+
+        .star-medium {
+            width: 2px;
+            height: 2px;
+            animation: twinkle 3s infinite alternate;
+            animation-delay: 1s;
+        }
+
+        .star-large {
+            width: 3px;
+            height: 3px;
+            animation: twinkle 5s infinite alternate;
+            animation-delay: 2s;
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to top, transparent, #fff);
+            transform: rotate(45deg);
+            animation: shooting 8s infinite linear;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes shooting {
+            0% {
+                transform: translateX(-100px) translateY(-100px) rotate(45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            20% {
+                transform: translateX(100vw) translateY(100vh) rotate(45deg);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(100vw) translateY(100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: fixed;
+            background: rgba(0, 198, 255, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 150, 255, 0.2);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .contact-info a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(0, 114, 255, 0.1);
+            border: 1px solid rgba(0, 150, 255, 0.2);
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 114, 255, 0.3);
+            background: rgba(0, 114, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+            background: rgba(20, 25, 40, 0.6);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 150, 255, 0.15);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 198, 255, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            100% {
+                left: 100%;
+            }
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        /* Tabs */
+        .tabs-container {
+            background: rgba(20, 25, 40, 0.8);
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            overflow: hidden;
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .tabs {
+            display: flex;
+            background: linear-gradient(90deg, rgba(0, 114, 255, 0.1), rgba(0, 198, 255, 0.1));
+        }
+
+        .tab {
+            flex: 1;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            color: var(--text);
+        }
+
+        .tab:hover {
+            background: rgba(0, 114, 255, 0.2);
+            color: var(--accent);
+        }
+
+        .tab.active {
+            background: linear-gradient(90deg, rgba(0, 114, 255, 0.3), rgba(0, 198, 255, 0.3));
+            color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
+        }
+
+        .tab.active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 2s infinite;
+        }
+
+        /* Tab content */
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            animation: contentFade 0.8s ease;
+        }
+
+        @keyframes contentFade {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px) scale(0.98);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Sections */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+            transform-origin: left;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 114, 255, 0.3);
+            border-color: var(--primary);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 150, 255, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .card-price {
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            color: var(--dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+            animation: priceGlow 2s infinite alternate;
+        }
+
+        @keyframes priceGlow {
+            0% {
+                box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+            }
+            100% {
+                box-shadow: 0 5px 20px rgba(0, 255, 157, 0.6);
+            }
+        }
+
+        .card-desc {
+            color: var(--text);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 150, 255, 0.1);
+        }
+
+        .card-country {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .country-flag {
+            width: 24px;
+            height: 16px;
+            border-radius: 3px;
+            background: var(--secondary);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-buy {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .card-buy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 114, 255, 0.4);
+        }
+
+        /* IMAP Checker Stats */
+        .imap-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .imap-stat-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .imap-stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 114, 255, 0.2);
+        }
+
+        .imap-stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .imap-stat-label {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* IMAP Checker Pricing */
+        .imap-pricing-container {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .imap-pricing-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+        }
+
+        .imap-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .imap-pricing-item {
+            background: rgba(10, 14, 23, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(0, 150, 255, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .imap-pricing-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 30%, rgba(0, 198, 255, 0.1) 100%);
+            z-index: 0;
+        }
+
+        .imap-pricing-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.2);
+        }
+
+        .imap-pricing-duration {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .imap-pricing-amount {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+        }
+
+        .imap-pricing-note {
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Country filter */
+        .country-filter-container {
+            background: rgba(20, 25, 40, 0.8);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(0, 150, 255, 0.2);
+        }
+
+        .country-filter-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .country-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .country-btn {
+            background: rgba(10, 14, 23, 0.9);
+            border: 1px solid rgba(0, 150, 255, 0.3);
+            color: var(--text);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .country-btn:hover {
+            background: rgba(0, 114, 255, 0.2);
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .country-btn.active {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
+            border-color: var(--primary);
+        }
+
+        /* IMAP Features Section */
+        .imap-features-container {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .imap-features-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+        }
+
+        .imap-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .imap-feature-item {
+            background: rgba(10, 14, 23, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 5px solid var(--primary);
+            transition: all 0.4s ease;
+        }
+
+        .imap-feature-item:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 114, 255, 0.2);
+        }
+
+        .imap-feature-item h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .imap-feature-item p {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* IMAP Providers Section */
+        .imap-providers-container {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .imap-providers-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+        }
+
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .provider-item {
+            background: rgba(10, 14, 23, 0.9);
+            border-radius: 10px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .provider-item:hover {
+            transform: translateX(5px);
+            border-left-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 114, 255, 0.2);
+        }
+
+        .provider-flag {
+            width: 30px;
+            height: 20px;
+            border-radius: 3px;
+            background: var(--secondary);
+            flex-shrink: 0;
+        }
+
+        .provider-name {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 23, 0.95);
+            border-top: 1px solid rgba(0, 150, 255, 0.3);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+        }
+
+        .footer-text {
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(0, 114, 255, 0.1);
+            border: 1px solid rgba(0, 150, 255, 0.2);
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 114, 255, 0.3);
+            background: rgba(0, 114, 255, 0.2);
+        }
+
+        .copyright {
+            color: rgba(204, 214, 246, 0.7);
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Scroll animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .country-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .country-btn {
+                width: 80%;
+                justify-content: center;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+            
+            .contact-info a {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Starry Background -->
+    <div id="stars-container"></div>
+    
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">PREMIUM<span>CONFIGS</span></div>
+            <div class="contact-info">
+                <a href="https://t.me/unrapeddt" target="_blank">
+                    <i class="fab fa-telegram"></i> @unrapeddt
+                </a>
+                <a href="https://t.me/unrapeddt" target="_blank">
+                    <i class="fas fa-shopping-cart"></i> Purchase & Support
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero fade-in">
+            <h1 class="hero-title">PREMIUM EMAIL TOOLS & CONFIGS</h1>
+            <p class="hero-subtitle">High-performance IMAP Checker, OPK & SVB configs for professional use. Featuring 200+ email providers from 35+ countries with real-time analytics and blazing fast checking capabilities.</p>
+        </section>
+
+        <!-- Tabs -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tab active" data-tab="imap">IMAP Checker</div>
+                <div class="tab" data-tab="opk">OPK Configs</div>
+                <div class="tab" data-tab="svb">SVB Configs</div>
+            </div>
+            
+            <!-- IMAP Checker Tab -->
+            <div id="imap" class="tab-content active">
+                <h2 class="section-title">IMAP Checker</h2>
+                <p class="section-subtitle">High-performance email checking with 200+ providers from 35+ countries</p>
+                
+                <!-- IMAP Stats -->
+                <div class="imap-stats">
+                    <div class="imap-stat-card fade-in">
+                        <div class="imap-stat-number">200+</div>
+                        <div class="imap-stat-label">Email Providers</div>
+                    </div>
+                    <div class="imap-stat-card fade-in">
+                        <div class="imap-stat-number">35+</div>
+                        <div class="imap-stat-label">Countries</div>
+                    </div>
+                    <div class="imap-stat-card fade-in">
+                        <div class="imap-stat-number">500K</div>
+                        <div class="imap-stat-label">CPM Capability</div>
+                    </div>
+                    <div class="imap-stat-card fade-in">
+                        <div class="imap-stat-number">500</div>
+                        <div class="imap-stat-label">Workers</div>
+                    </div>
+                </div>
+                
+                <!-- IMAP Pricing -->
+                <div class="imap-pricing-container">
+                    <h3 class="imap-pricing-title">🌐 IMAP Checker Pricing</h3>
+                    <div class="imap-pricing-grid">
+                        <div class="imap-pricing-item">
+                            <div class="imap-pricing-duration">3 Days (Trial)</div>
+                            <div class="imap-pricing-amount">$15</div>
+                            <div class="imap-pricing-note">Perfect for testing</div>
+                        </div>
+                        <div class="imap-pricing-item">
+                            <div class="imap-pricing-duration">7 Days</div>
+                            <div class="imap-pricing-amount">$35</div>
+                            <div class="imap-pricing-note">Weekly access</div>
+                        </div>
+                        <div class="imap-pricing-item">
+                            <div class="imap-pricing-duration">30 Days</div>
+                            <div class="imap-pricing-amount">$100</div>
+                            <div class="imap-pricing-note">Most popular</div>
+                        </div>
+                        <div class="imap-pricing-item">
+                            <div class="imap-pricing-duration">90 Days</div>
+                            <div class="imap-pricing-amount">$250</div>
+                            <div class="imap-pricing-note">Quarterly savings</div>
+                        </div>
+                        <div class="imap-pricing-item">
+                            <div class="imap-pricing-duration">Lifetime</div>
+                            <div class="imap-pricing-amount">$500</div>
+                            <div class="imap-pricing-note">Best value</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 2.5rem;">
+                        <button class="card-buy" onclick="buyConfig('IMAP Checker', 'from $15')" style="padding: 1rem 2.5rem; font-size: 1.2rem;">
+                            <i class="fas fa-shopping-cart"></i> Purchase IMAP Checker
+                        </button>
+                    </div>
+                </div>
+
+                <!-- IMAP Features -->
+                <div class="imap-features-container fade-in">
+                    <h3 class="imap-features-title">💨 Performance Features</h3>
+                    <div class="imap-features-grid">
+                        <div class="imap-feature-item">
+                            <h3>⚡ 500 Workers</h3>
+                            <p>~500k CPM capability for lightning fast checking with parallel processing.</p>
+                        </div>
+                        <div class="imap-feature-item">
+                            <h3>🚀 Concurrent Checking</h3>
+                            <p>Blazing fast performance with simultaneous processing of multiple accounts.</p>
+                        </div>
+                        <div class="imap-feature-item">
+                            <h3>⏱️ Smart Timeout</h3>
+                            <p>Doesn't hang on slow servers, optimized for maximum efficiency.</p>
+                        </div>
+                        <div class="imap-feature-item">
+                            <h3>📊 Real-time Stats</h3>
+                            <p>See progress live with detailed analytics and performance metrics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Client Features -->
+                <div class="imap-features-container fade-in">
+                    <h3 class="imap-features-title">⚙️ Client Features</h3>
+                    <div class="imap-features-grid">
+                        <div class="imap-feature-item">
+                            <h3>✅ 200+ Email Providers</h3>
+                            <p>From 35+ countries with comprehensive coverage and regular updates.</p>
+                        </div>
+                        <div class="imap-feature-item">
+                            <h3>🌍 Country Filtering</h3>
+                            <p>Select specific countries before loading for targeted checking.</p>
+                        </div>
+                        <div class="imap-feature-item">
+                            <h3>🚫 Auto-block Major Providers</h3>
+                            <p>Automatically blocks Gmail, Yahoo, Outlook to save time.</p>
+                        </div>
+                        <div class="imap-feature-item">
+                            <h3>📈 Inbox Count & Statistics</h3>
+                            <p>Shows inbox count for each valid account with detailed country stats.</p>
+                        </div>
+                        <div class="imap-feature-item">
+                            <h3>⚡ Real-time CPM Stats</h3>
+                            <p>Monitor performance with live checking statistics and progress bars.</p>
+                        </div>
+                        <div class="imap-feature-item">
+                            <h3>💾 Export with Details</h3>
+                            <p>Export valid accounts with all details included in multiple formats.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- IMAP Providers -->
+                <div class="imap-providers-container fade-in">
+                    <h3 class="imap-providers-title">🌐 Supported Providers (200+)</h3>
+                    <div class="country-filter-container">
+                        <div class="country-filter" id="imapCountryFilter">
+                            <button class="country-btn active" data-country="all">
+                                <i class="fas fa-globe"></i> All Countries
+                            </button>
+                            <button class="country-btn" data-country="de">
+                                <i class="flag-icon">🇩🇪</i> Germany
+                            </button>
+                            <button class="country-btn" data-country="us">
+                                <i class="flag-icon">🇺🇸</i> USA
+                            </button>
+                            <button class="country-btn" data-country="uk">
+                                <i class="flag-icon">🇬🇧</i> UK
+                            </button>
+                            <button class="country-btn" data-country="other">
+                                <i class="fas fa-globe-americas"></i> Others
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="providers-grid" id="imapProvidersList">
+                        <!-- Providers will be loaded by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Preview Video -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="https://t.me/unrapedt/864" class="card-buy" target="_blank" style="padding: 1rem 2.5rem; font-size: 1.2rem; text-decoration: none; display: inline-block;">
+                        <i class="fas fa-play-circle"></i> Watch Preview Video
+                    </a>
+                </div>
+            </div>
+
+            <!-- OPK Configs Tab -->
+            <div id="opk" class="tab-content">
+                <div class="country-filter-container">
+                    <h3 class="country-filter-title">Filter by Country</h3>
+                    <div class="country-filter" id="opkCountryFilter">
+                        <button class="country-btn active" data-country="all">
+                            <i class="fas fa-globe"></i> All Countries
+                        </button>
+                        <button class="country-btn" data-country="it">
+                            <i class="flag-icon">🇮🇹</i> Italy
+                        </button>
+                        <button class="country-btn" data-country="de">
+                            <i class="flag-icon">🇩🇪</i> Germany
+                        </button>
+                        <button class="country-btn" data-country="es">
+                            <i class="flag-icon">🇪🇸</i> Spain
+                        </button>
+                        <button class="country-btn" data-country="uk">
+                            <i class="flag-icon">🇬🇧</i> UK
+                        </button>
+                        <button class="country-btn" data-country="us">
+                            <i class="flag-icon">🇺🇸</i> USA
+                        </button>
+                        <button class="country-btn" data-country="int">
+                            <i class="fas fa-globe-americas"></i> International
+                        </button>
+                        <button class="country-btn" data-country="pl">
+                            <i class="flag-icon">🇵🇱</i> Poland
+                        </button>
+                        <button class="country-btn" data-country="at">
+                            <i class="flag-icon">🇦🇹</i> Austria
+                        </button>
+                        <button class="country-btn" data-country="sk">
+                            <i class="flag-icon">🇸🇰</i> Slovakia
+                        </button>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">OPK Configs</h2>
+                <p class="section-subtitle">Premium OPK configs for various services and platforms</p>
+                
+                <!-- OPK Configs Cards -->
+                <div class="cards-container" id="opkConfigsList">
+                    <!-- OPK configs will be loaded here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- SVB Configs Tab -->
+            <div id="svb" class="tab-content">
+                <div class="country-filter-container">
+                    <h3 class="country-filter-title">Filter by Country</h3>
+                    <div class="country-filter" id="svbCountryFilter">
+                        <button class="country-btn active" data-country="all">
+                            <i class="fas fa-globe"></i> All Countries
+                        </button>
+                        <button class="country-btn" data-country="fr">
+                            <i class="flag-icon">🇫🇷</i> France
+                        </button>
+                        <button class="country-btn" data-country="uk">
+                            <i class="flag-icon">🇬🇧</i> UK
+                        </button>
+                        <button class="country-btn" data-country="int">
+                            <i class="fas fa-globe-americas"></i> International
+                        </button>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">SVB Configs</h2>
+                <p class="section-subtitle">Premium SVB configs for various services and platforms</p>
+                
+                <!-- SVB Configs Cards -->
+                <div class="cards-container" id="svbConfigsList">
+                    <!-- SVB configs will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">PREMIUM<span>CONFIGS</span></div>
+        <p class="footer-text">High-quality IMAP Checker, OPK & SVB configs for professional use</p>
+        
+        <div class="footer-links">
+            <a href="https://t.me/unrapeddt" class="footer-link" target="_blank">
+                <i class="fab fa-telegram"></i> @unrapeddt (Support)
+            </a>
+            <a href="https://t.me/unrapeddt" class="footer-link" target="_blank">
+                <i class="fas fa-shopping-cart"></i> @unrapeddt (Purchase)
+            </a>
+        </div>
+        
+        <p class="copyright">© 2023 Premium Configs. All rights reserved.</p>
+        <p class="copyright">This website is for demonstration purposes only.</p>
+    </footer>
+
+    <script>
+        // Create enhanced starry background
+        function createStarryBackground() {
+            const container = document.getElementById('stars-container');
+            const starCount = 200;
+            
+            // Create stars
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                
+                // Random star size class
+                const size = Math.random();
+                if (size < 0.6) {
+                    star.classList.add('star', 'star-small');
+                } else if (size < 0.9) {
+                    star.classList.add('star', 'star-medium');
+                } else {
+                    star.classList.add('star', 'star-large');
+                }
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                
+                // Random animation delay
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(star);
+            }
+            
+            // Create shooting stars
+            for (let i = 0; i < 5; i++) {
+                const shootingStar = document.createElement('div');
+                shootingStar.classList.add('shooting-star');
+                
+                // Random position and animation delay
+                shootingStar.style.left = `${Math.random() * 100}vw`;
+                shootingStar.style.top = `${Math.random() * 100}vh`;
+                shootingStar.style.animationDelay = `${Math.random() * 15}s`;
+                
+                container.appendChild(shootingStar);
+            }
+        }
+        
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 100 + 50;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random color
+                const colors = [
+                    'rgba(0, 198, 255, 0.1)',
+                    'rgba(0, 114, 255, 0.1)',
+                    'rgba(0, 255, 157, 0.1)'
+                ];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}vw`;
+                
+                // Random animation
+                particle.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Tab switching functionality - FIXED
+        function setupTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show target tab content
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === targetTab) {
+                            content.classList.add('active');
+                        }
+                    });
+                    
+                    // Trigger fade-in animations for new content
+                    setTimeout(() => {
+                        const fadeElements = document.querySelectorAll('.fade-in');
+                        fadeElements.forEach(el => {
+                            if (isElementInViewport(el)) {
+                                el.classList.add('visible');
+                            }
+                        });
+                    }, 100);
+                });
+            });
+        }
+        
+        // Check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        }
+        
+        // Setup scroll animations
+        function setupScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkScroll() {
+                fadeElements.forEach(el => {
+                    if (isElementInViewport(el)) {
+                        el.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Check on scroll and on load
+            window.addEventListener('scroll', checkScroll);
+            checkScroll();
+        }
+        
+        // Load IMAP providers
+        function loadIMAPProviders() {
+            const providers = [
+                { country: 'de', name: 't-online.de' },
+                { country: 'de', name: 'gmx.de' },
+                { country: 'de', name: 'web.de' },
+                { country: 'de', name: 'freenet.de' },
+                { country: 'de', name: '1und1.de' },
+                { country: 'de', name: 'ionos.de' },
+                { country: 'de', name: 'arcor.de' },
+                { country: 'de', name: 'vodafone.de' },
+                { country: 'de', name: 'mail.de' },
+                { country: 'de', name: 'posteo.de' },
+                { country: 'de', name: 'mailbox.org' },
+                { country: 'us', name: 'aol.com' },
+                { country: 'us', name: 'att.net' },
+                { country: 'us', name: 'verizon.net' },
+                { country: 'us', name: 'comcast.net' },
+                { country: 'us', name: 'cox.net' },
+                { country: 'us', name: 'charter.net' },
+                { country: 'us', name: 'earthlink.net' },
+                { country: 'uk', name: 'bt.com' },
+                { country: 'uk', name: 'talktalk.co.uk' },
+                { country: 'other', name: 'alice.it (Italy)' },
+                { country: 'other', name: 'orange.fr (France)' },
+                { country: 'other', name: 'libero.it (Italy)' },
+                { country: 'other', name: 'ya.ru (Russia)' },
+                { country: 'other', name: 'wp.pl (Poland)' },
+                { country: 'other', name: 'o2.pl (Poland)' },
+                { country: 'other', name: 'mail.ru (Russia)' },
+                { country: 'other', name: 'yahoo.co.jp (Japan)' },
+                { country: 'other', name: 'naver.com (Korea)' },
+                { country: 'other', name: 'qq.com (China)' }
+            ];
+            
+            const container = document.getElementById('imapProvidersList');
+            container.innerHTML = '';
+            
+            providers.forEach(provider => {
+                const providerItem = document.createElement('div');
+                providerItem.className = 'provider-item';
+                providerItem.setAttribute('data-country', provider.country);
+                
+                providerItem.innerHTML = `
+                    <div class="provider-flag" style="background: ${getCountryColor(provider.country)}"></div>
+                    <div class="provider-name">${provider.name}</div>
+                `;
+                
+                container.appendChild(providerItem);
+            });
+        }
+        
+        // Filter IMAP providers by country
+        function filterIMAPProviders(country, contentId) {
+            const providers = document.querySelectorAll(`#${contentId} .provider-item`);
+            providers.forEach(provider => {
+                if (country === 'all' || provider.getAttribute('data-country') === country) {
+                    provider.style.display = 'flex';
+                } else {
+                    provider.style.display = 'none';
+                }
+            });
+        }
+        
+        // Country filter functionality
+        function setupCountryFilter(filterId, contentId, filterFunction) {
+            const filterButtons = document.querySelectorAll(`#${filterId} .country-btn`);
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter content
+                    const country = this.getAttribute('data-country');
+                    filterFunction(country, contentId);
+                });
+            });
+        }
+        
+        // Load OPK configs
+        function loadOPKConfigs() {
+            const opkConfigs = [
+                { country: 'it', title: 'alice.it', price: '$15', desc: 'Inboxer config for Alice Italy email provider' },
+                { country: 'de', title: 'gmx.net', price: '$15', desc: 'Valid Checker for GMX Germany with high accuracy' },
+                { country: 'de', title: 'gmx.net Web', price: '$50', desc: 'Web inboxer for GMX Germany with full functionality' },
+                { country: 'de', title: 'gmx.net Web', price: '$30', desc: 'Brute force config for GMX Germany' },
+                { country: 'de', title: 'baur.de', price: '$40', desc: 'Full capture config for Baur.de' },
+                { country: 'de', title: 'zalando.de VM', price: '$40', desc: 'Brute config for Zalando Germany VM' },
+                { country: 'de', title: 'scondoo.de', price: '$30', desc: 'Full capture for Scondoo Germany' },
+                { country: 'de', title: 'scondoo.de VM', price: '$20', desc: 'Brute config for Scondoo Germany VM' },
+                { country: 'es', title: 'gmx.es Web', price: '$50', desc: 'Web inboxer for GMX Spain' },
+                { country: 'uk', title: 'bt.com', price: '$75', desc: 'Inboxer config for BT UK' },
+                { country: 'int', title: 'Shopmium.com', price: '$50', desc: 'Full capture for Shopmium with captcha solver requirement' },
+                { country: 'int', title: 'WeBuy.Uk', price: '$40', desc: 'Full capture for WeBuy UK with captcha solver requirement' },
+                { country: 'uk', title: 'Talktalk Web', price: '$30', desc: 'Brute Valid Checker for TalkTalk UK' },
+                { country: 'uk', title: 'TalkTalk Web', price: '$75', desc: 'Inboxer config for TalkTalk UK web' },
+                { country: 'int', title: 'Tesla VM X Hotmail', price: '$200', desc: 'ValidChecker for Tesla VM with Hotmail integration' },
+                { country: 'int', title: 'SecurePayment', price: '$25', desc: 'Valid Checker for SecurePayment services' },
+                { country: 'int', title: 'Instagram VM', price: '$100', desc: 'Checker for Instagram VM accounts' },
+                { country: 'int', title: 'cointracking.info', price: '$25', desc: 'Balance + BTC checker for CoinTracking' },
+                { country: 'int', title: 'Hotmail X Roblox', price: '$20', desc: 'Full config for Hotmail with Roblox integration' },
+                { country: 'int', title: 'Ionos Login', price: '$40', desc: 'Brute force config for Ionos login' },
+                { country: 'us', title: 'Skaraudio.com', price: '$40', desc: 'Full capture for Skaraudio showing CC information' },
+                { country: 'us', title: 'Directv.com', price: '$60', desc: 'Full capture config for Directv USA' },
+                { country: 'us', title: 'NBA.com', price: '$50', desc: 'Full config for NBA.com accounts' },
+                { country: 'pl', title: 'PL FB code 8 VM', price: '$50', desc: 'Full capture for Polish Facebook code 8 VM' },
+                { country: 'pl', title: 'o2.pl Web', price: '$30', desc: 'Valid Checker for O2 Poland web' },
+                { country: 'pl', title: 'wp.pl Web', price: '$30', desc: 'Valid Checker for WP Poland web' },
+                { country: 'pl', title: 'wp.pl Web', price: '$50', desc: 'Inboxer config for WP Poland web' },
+                { country: 'at', title: 'Breuninger.com(AT)', price: '$30', desc: 'Full capture for Breuninger Austria' },
+                { country: 'at', title: 'Otto.at', price: '$30', desc: 'Full capture config for Otto Austria' },
+                { country: 'sk', title: 'post.sk Web', price: '$40', desc: 'Inboxer for Post Slovakia web' }
+            ];
+            
+            const container = document.getElementById('opkConfigsList');
+            container.innerHTML = '';
+            
+            opkConfigs.forEach(config => {
+                const card = createConfigCard(config);
+                container.appendChild(card);
+            });
+        }
+        
+        // Filter OPK configs by country
+        function filterOPKConfigs(country) {
+            const configs = document.querySelectorAll('#opkConfigsList .card');
+            configs.forEach(config => {
+                const configCountry = config.getAttribute('data-country');
+                if (country === 'all' || configCountry === country) {
+                    config.style.display = 'flex';
+                } else {
+                    config.style.display = 'none';
+                }
+            });
+        }
+        
+        // Load SVB configs
+        function loadSVBConfigs() {
+            const svbConfigs = [
+                { country: 'fr', title: 'Flunch.fr Bypassed Captcha', price: '$35', desc: 'Full capture for Flunch France with bypassed captcha' },
+                { country: 'uk', title: 'morrisons', price: '$60', desc: 'Full capture for Morrisons UK with captcha solver requirement' },
+                { country: 'uk', title: 'Octopus.com', price: '$40', desc: 'Full capture config for Octopus UK' },
+                { country: 'int', title: 'Cryptorefills.com', price: '$20', desc: 'Full capture for CryptoRefills with captcha solver requirement' }
+            ];
+            
+            const container = document.getElementById('svbConfigsList');
+            container.innerHTML = '';
+            
+            svbConfigs.forEach(config => {
+                const card = createConfigCard(config);
+                container.appendChild(card);
+            });
+        }
+        
+        // Filter SVB configs by country
+        function filterSVBConfigs(country) {
+            const configs = document.querySelectorAll('#svbConfigsList .card');
+            configs.forEach(config => {
+                const configCountry = config.getAttribute('data-country');
+                if (country === 'all' || configCountry === country) {
+                    config.style.display = 'flex';
+                } else {
+                    config.style.display = 'none';
+                }
+            });
+        }
+        
+        // Create config card element
+        function createConfigCard(config) {
+            const card = document.createElement('div');
+            card.className = 'card fade-in';
+            card.setAttribute('data-country', config.country);
+            
+            // Get country flag emoji
+            const flagEmoji = getCountryFlag(config.country);
+            const countryName = getCountryName(config.country);
+            
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="card-title">${config.title}</div>
+                    <div class="card-price">${config.price}</div>
+                </div>
+                <div class="card-desc">${config.desc}</div>
+                <div class="card-footer">
+                    <div class="card-country">
+                        <div class="country-flag" style="background: ${getCountryColor(config.country)}"></div>
+                        <span>${flagEmoji} ${countryName}</span>
+                    </div>
+                    <button class="card-buy" onclick="buyConfig('${config.title}', '${config.price}')">
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // Buy config function
+        function buyConfig(title, price) {
+            alert(`Purchase ${title} for ${price}\n\nContact @unrapeddt on Telegram to complete your purchase.`);
+        }
+        
+        // Get country color
+        function getCountryColor(countryCode) {
+            const colors = {
+                'de': '#000000',
+                'us': '#3C3B6E',
+                'uk': '#012169',
+                'fr': '#0055A4',
+                'it': '#009246',
+                'es': '#AA151B',
+                'int': '#6F42C1',
+                'pl': '#DC143C',
+                'at': '#ED2939',
+                'sk': '#0B4EA2',
+                'other': '#6C757D'
+            };
+            
+            return colors[countryCode] || '#6C757D';
+        }
+        
+        // Get country flag emoji
+        function getCountryFlag(countryCode) {
+            const flags = {
+                'de': '🇩🇪',
+                'us': '🇺🇸',
+                'uk': '🇬🇧',
+                'fr': '🇫🇷',
+                'it': '🇮🇹',
+                'es': '🇪🇸',
+                'int': '🌐',
+                'pl': '🇵🇱',
+                'at': '🇦🇹',
+                'sk': '🇸🇰',
+                'other': '🌐'
+            };
+            
+            return flags[countryCode] || '🌐';
+        }
+        
+        // Get country name
+        function getCountryName(countryCode) {
+            const names = {
+                'de': 'Germany',
+                'us': 'USA',
+                'uk': 'United Kingdom',
+                'fr': 'France',
+                'it': 'Italy',
+                'es': 'Spain',
+                'int': 'International',
+                'pl': 'Poland',
+                'at': 'Austria',
+                'sk': 'Slovakia',
+                'other': 'Other Countries'
+            };
+            
+            return names[countryCode] || 'International';
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createStarryBackground();
+            createParticles();
+            setupTabs();
+            setupScrollAnimations();
+            
+            // Load data for all tabs
+            loadIMAPProviders();
+            loadOPKConfigs();
+            loadSVBConfigs();
+            
+            // Setup country filters for all sections
+            setupCountryFilter('imapCountryFilter', 'imapProvidersList', filterIMAPProviders);
+            setupCountryFilter('opkCountryFilter', 'opkConfigsList', filterOPKConfigs);
+            setupCountryFilter('svbCountryFilter', 'svbConfigsList', filterSVBConfigs);
+            
+            // Make sure first tab content is visible
+            document.querySelector('.tab-content.active').style.display = 'block';
+            
+            // Add flag icons to country buttons
+            document.querySelectorAll('.flag-icon').forEach(icon => {
+                const flag = getCountryFlag(icon.textContent.slice(-2).toLowerCase());
+                icon.textContent = flag;
+            });
+            
+            // Trigger initial animations
+            setTimeout(() => {
+                const fadeElements = document.querySelectorAll('.fade-in');
+                fadeElements.forEach(el => {
+                    if (isElementInViewport(el)) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>
